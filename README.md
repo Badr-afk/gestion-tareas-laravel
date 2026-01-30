@@ -1,59 +1,89 @@
-# ✅ Gestor de Tareas con Laravel Breeze
+# Gestor de Tareas Avanzado (Laravel 12 + Breeze)
 
-Aplicación web completa desarrollada con **Laravel 12** y **Breeze** (Blade + Tailwind). Permite a los usuarios registrarse y gestionar su propia lista de tareas privada.
+Aplicacion web completa desarrollada con **Laravel 12**, **Breeze** (Blade + Tailwind CSS) y **Alpine.js**. Permite a los usuarios registrarse y gestionar su lista de tareas personal con una interfaz moderna y reactiva.
 
-Incluye funcionalidades avanzadas como marcar tareas como completadas mediante AJAX (sin recarga completa), ordenación por prioridad y seguridad por usuario.
+Este proyecto va mas alla de un CRUD basico, implementando caracteristicas avanzadas de UX y seguridad.
 
-## Características
-* **Autenticación:** Login, Registro y Reset de contraseña (Breeze).
-* **CRUD Completo:** Crear, Leer, Actualizar (Toggle) y Borrar tareas.
-* **Seguridad:** Policy para que cada usuario vea solo *sus* tareas.
-* **UX:** Interfaz limpia con Tailwind CSS y feedback visual (tareas tachadas).
-* **Tipos de Datos:** Uso de Strings, Fechas, Booleanos y Enteros.
+## Caracteristicas Destacadas
 
-## Requisitos e Instalación
+* **Autenticacion Robusta:** Sistema completo de Login y Registro con Laravel Breeze.
+* **Interfaz Moderna:** Diseno limpio usando Tailwind CSS.
+* **Feedback Visual:**
+    * Las tareas completadas se marcan en verde y tachadas.
+    * Etiquetas de colores para la Prioridad (Alta, Media, Baja).
+* **CRUD Completo y Logica Extra:**
+    * **Crear:** Formulario rapido en la cabecera.
+    * **Leer:** Listado ordenado (pendientes primero).
+    * **Actualizar:** Edicion completa + Boton rapido de "Completar/Pendiente" (Toggle).
+    * **Borrar:** Proteccion contra borrado accidental.
+* **Seguridad:** Policies implementadas para que cada usuario solo pueda ver y editar sus propias tareas.
+* **Alertas:** Integracion con SweetAlert2 para confirmaciones de eliminacion.
 
-1.  **Instalar dependencias de PHP y Node.js:**
+## Requisitos e Instalacion
+
+1.  **Clonar el repositorio:**
+    ```bash
+    git clone <URL_DE_TU_REPO>
+    cd gestion-tareas
+    ```
+
+2.  **Instalar dependencias (Backend y Frontend):**
     ```bash
     composer install
     npm install
     ```
 
-2.  **Configurar Base de Datos:**
-    * Crea una base de datos MySQL.
-    * Configura el archivo `.env`.
-    * Ejecuta las migraciones:
+3.  **Configurar Entorno:**
+    * Copia el archivo .env.example a .env.
+    * Configura tu base de datos (DB_DATABASE=tareas_db).
+    * Genera la clave de aplicacion:
+        ```bash
+        php artisan key:generate
+        ```
+
+4.  **Base de Datos:**
     ```bash
     php artisan migrate
     ```
 
-3.  **Compilar estilos (Tailwind):**
+5.  **Ejecutar:**
+    Necesitaras dos terminales abiertas:
     ```bash
-    npm run build
-    ```
-
-4.  **Ejecutar servidor:**
-    ```bash
+    # Terminal 1 (Servidor PHP)
     php artisan serve
+
+    # Terminal 2 (Compilador de estilos en tiempo real)
+    npm run dev
     ```
+    Accede a: http://127.0.0.1:8000
 
-## Guía de Uso
+---
 
-### 1. Registro y Login
-El usuario debe crearse una cuenta para acceder a su panel personal.
+## Galeria de la Aplicacion
 
-![Pantalla Login](ruta/a/tu/captura_login_web.png)
+### 1. Login y Seguridad
+Pantalla de acceso segura proporcionada por el stack de Breeze.
 
-### 2. Panel de Tareas
-Aquí se visualizan las tareas pendientes y completadas. Las tareas de prioridad "Alta" se destacan visualmente.
+![Login](img/imagen_login_web.png)
 
-![Lista de Tareas](ruta/a/tu/captura_lista_tareas.png)
+### 2. Panel de Tareas (Dashboard)
+Vista principal. Se observa el formulario de creacion rapida, y la lista de tareas. Notese la diferenciacion visual entre tareas completadas y pendientes, asi como las etiquetas de prioridad.
 
-### 3. Crear y Completar
-* Usa el formulario superior para añadir tareas rápidamente.
-* Pulsa el **recuadro ()** para marcar una tarea como completada al instante.
+![Lista de Tareas](img/imagen_lista_tareas.png)
 
-![Tarea Completada](ruta/a/tu/captura_tarea_completada.png)
+### 3. Edicion de Tarea
+Formulario dedicado para modificar los detalles de una tarea existente.
 
-##  Bonus: Blueprint
-Este proyecto incluye configuración compatible con **Laravel Blueprint** mediante el archivo `draft.yaml` para generación rápida de código.
+![Edicion](img/imagen_editar_tarea.png)
+
+### 4. Seguridad en el Borrado
+Implementacion de JavaScript (SweetAlert) para prevenir el borrado accidental de datos.
+
+![Alerta Borrar](img/imagen_alerta_borrar.png)
+
+---
+
+## Detalles Tecnicos
+* **Modelo Tarea:** Campos tipados (string, text, boolean, date, integer).
+* **Controlador:** Uso de Route Model Binding y validacion de Request.
+* **Vistas:** Componentes Blade reutilizables.
