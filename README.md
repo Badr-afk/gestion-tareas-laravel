@@ -1,25 +1,25 @@
 # Gestor de Tareas Avanzado (Laravel 12 + Breeze)
 
-Aplicacion web completa desarrollada con **Laravel 12**, **Breeze** (Blade + Tailwind CSS) y **Alpine.js**. Permite a los usuarios registrarse y gestionar su lista de tareas personal con una interfaz moderna y reactiva.
+Aplicación web completa desarrollada con **Laravel 12**, **Breeze** (Blade + Tailwind CSS) y **Alpine.js**. Permite a los usuarios registrarse y gestionar su lista de tareas personal con una interfaz moderna y reactiva.
 
-Este proyecto va mas alla de un CRUD basico, implementando caracteristicas avanzadas de UX y seguridad.
+Este proyecto va más allá de un CRUD básico, implementando características avanzadas de UX y seguridad.
 
-## Caracteristicas Destacadas
+##  Características Destacadas
 
-* **Autenticacion Robusta:** Sistema completo de Login y Registro con Laravel Breeze.
-* **Interfaz Moderna:** Diseno limpio usando Tailwind CSS.
+* **Autenticación Robusta:** Sistema completo de Login y Registro con Laravel Breeze.
+* **Interfaz Moderna:** Diseño limpio usando Tailwind CSS.
 * **Feedback Visual:**
     * Las tareas completadas se marcan en verde y tachadas.
     * Etiquetas de colores para la Prioridad (Alta, Media, Baja).
-* **CRUD Completo y Logica Extra:**
-    * **Crear:** Formulario rapido en la cabecera.
+* **CRUD Completo y Lógica Extra:**
+    * **Crear:** Formulario rápido en la cabecera.
     * **Leer:** Listado ordenado (pendientes primero).
-    * **Actualizar:** Edicion completa + Boton rapido de "Completar/Pendiente" (Toggle).
-    * **Borrar:** Proteccion contra borrado accidental.
-* **Seguridad:** Policies implementadas para que cada usuario solo pueda ver y editar sus propias tareas.
-* **Alertas:** Integracion con SweetAlert2 para confirmaciones de eliminacion.
+    * **Actualizar:** Edición completa + Botón rápido de "Completar/Pendiente" (Toggle).
+    * **Borrar:** Protección contra borrado accidental.
+* **Seguridad:** *Policies* implementadas para que cada usuario solo pueda ver y editar sus propias tareas.
+* **Alertas:** Integración con **SweetAlert2** para confirmaciones de eliminación.
 
-## Requisitos e Instalacion
+##  Requisitos e Instalación
 
 1.  **Clonar el repositorio:**
     ```bash
@@ -34,9 +34,9 @@ Este proyecto va mas alla de un CRUD basico, implementando caracteristicas avanz
     ```
 
 3.  **Configurar Entorno:**
-    * Copia el archivo .env.example a .env.
-    * Configura tu base de datos (DB_DATABASE=tareas_db).
-    * Genera la clave de aplicacion:
+    * Copia el archivo `.env.example` a `.env`.
+    * Configura tu base de datos (`DB_DATABASE=tareas_db`).
+    * Genera la clave de aplicación:
         ```bash
         php artisan key:generate
         ```
@@ -46,44 +46,48 @@ Este proyecto va mas alla de un CRUD basico, implementando caracteristicas avanz
     php artisan migrate
     ```
 
-5.  **Ejecutar:**
-    Necesitaras dos terminales abiertas:
+5.  **Ejecutar Proyecto:**
+    Necesitarás dos terminales abiertas:
     ```bash
     # Terminal 1 (Servidor PHP)
     php artisan serve
 
-    # Terminal 2 (Compilador de estilos en tiempo real)
+    # Terminal 2 (Vite / Compilador de estilos)
     npm run dev
     ```
-    Accede a: http://127.0.0.1:8000
+    Accede a: [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
 ---
 
-## Galeria de la Aplicacion
+##  Galería de la Aplicación
 
 ### 1. Login y Seguridad
 Pantalla de acceso segura proporcionada por el stack de Breeze.
 
-![Login](img/imagen_login_web.png)
+![Login](./img/imagen_login_web.png)
 
 ### 2. Panel de Tareas (Dashboard)
-Vista principal. Se observa el formulario de creacion rapida, y la lista de tareas. Notese la diferenciacion visual entre tareas completadas y pendientes, asi como las etiquetas de prioridad.
+Vista principal con formulario de creación rápida y lista de tareas con diferenciación visual por estado y prioridad.
 
-![Lista de Tareas](img/imagen_lista_tareas.png)
+![Lista de Tareas](./img/imagen_lista_tareas.png)
 
-### 3. Edicion de Tarea
-Formulario dedicado para modificar los detalles de una tarea existente.
+### 3. Edición de Tarea
+Formulario dedicado para modificar los detalles de una tarea existente de forma sencilla.
 
-![Edicion](img/imagen_editar_tarea.png)
+![Edicion](./img/imagen_editar_tarea.png)
 
 ### 4. Seguridad en el Borrado
-Implementacion de JavaScript (SweetAlert) para prevenir el borrado accidental de datos.
+Implementación de SweetAlert2 para prevenir la pérdida accidental de datos.
 
-![Alerta Borrar](img/imagen_alerta_borrar.png)
+![Alerta Borrar](./img/imagen_alerta_borrar.png)
 
 ---
 
-## Detalles Tecnicos
-* **Modelo Tarea:** Campos tipados (string, text, boolean, date, integer).
-* **Controlador:** Uso de Route Model Binding y validacion de Request.
-* **Vistas:** Componentes Blade reutilizables.
+## Detalles Técnicos
+
+| Componente | Detalle |
+| :--- | :--- |
+| **Modelo Tarea** | Campos tipados: `string`, `text`, `boolean`, `date`, `integer`. |
+| **Controlador** | Uso de *Route Model Binding* y validación mediante *Form Requests*. |
+| **Seguridad** | Laravel Policies para el aislamiento de datos por usuario. |
+| **Vistas** | Componentes Blade reutilizables y reactividad con Alpine.js. |
