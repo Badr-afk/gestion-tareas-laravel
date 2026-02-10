@@ -59,29 +59,23 @@ Este proyecto va más allá de un CRUD básico, implementando características a
 
 ---
 
-##  Galería de la Aplicación
+## 📸 Galería de la Aplicación
 
 ### 1. Login y Seguridad
 Pantalla de acceso segura proporcionada por el stack de Breeze.
-
-![Login](./img/imagen_login_web.png)
+<img src="./img/imagen_login_web.png" alt="Login" width="100%">
 
 ### 2. Panel de Tareas (Dashboard)
-Vista principal con formulario de creación rápida y lista de tareas con diferenciación visual por estado y prioridad.
-
-![Lista de Tareas](./img/imagen_lista_tareas.png)
+Vista principal con formulario de creación rápida y lista de tareas.
+<img src="./img/imagen_lista_tareas.png" alt="Lista de Tareas" width="100%">
 
 ### 3. Edición de Tarea
-Formulario dedicado para modificar los detalles de una tarea existente de forma sencilla.
-
-![Edicion](./img/imagen_editar_tarea.png)
+Formulario dedicado para modificar los detalles de una tarea existente.
+<img src="./img/imagen_editar_tarea.png" alt="Edicion" width="100%">
 
 ### 4. Seguridad en el Borrado
 Implementación de SweetAlert2 para prevenir la pérdida accidental de datos.
-
-![Alerta Borrar](./img/imagen_alerta_borrar.png)
-
----
+<img src="./img/imagen_alerta_borrar.png" alt="Alerta Borrar" width="100%">---
 
 ## Detalles Técnicos
 
